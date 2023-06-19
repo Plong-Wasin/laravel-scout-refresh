@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "wasinpwg/laravel-scout-refresh",
+    "description": "This is my package laravel-scout-refresh",
     "keywords": [
-        ":vendor_name",
+        "wasinpwg",
         "laravel",
-        ":package_slug"
+        "laravel-scout-refresh"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/wasinpwg/laravel-scout-refresh",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Wasin Phungwigrai",
+            "email": "wasin.pwg@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Wasinpwg\\ScoutRefresh\\": "src/",
+            "Wasinpwg\\ScoutRefresh\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Wasinpwg\\ScoutRefresh\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Wasinpwg\\ScoutRefresh\\ScoutRefreshServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "ScoutRefresh": "Wasinpwg\\ScoutRefresh\\Facades\\ScoutRefresh"
             }
         }
     },
