@@ -17,7 +17,7 @@ class ScoutRefreshCommand extends Command
         $modelsDirectory = app_path('Models');
         $files = File::files($modelsDirectory);
         foreach ($files as $file) {
-            $modelName = 'App\\Models\\' . $file->getBasename('.php');
+            $modelName = 'App\\Models\\'.$file->getBasename('.php');
             $model = new $modelName();
             if (method_exists($model, 'shouldBeSearchable')) {
                 $this->call('scout:import', ['model' => $modelName]);
@@ -25,6 +25,7 @@ class ScoutRefreshCommand extends Command
             }
         }
         $this->call('scout:sync-index-settings');
+
         return Command::SUCCESS;
     }
 }
