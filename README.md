@@ -15,7 +15,12 @@ You can install the package via composer:
 composer require wasinpwg/laravel-scout-refresh
 ```
 
-You can publish the config file with:
+## Usage
+
+```bash
+php artisan scout:refresh
+php artisan scout:fresh
+```
 
 ## Testing
 
