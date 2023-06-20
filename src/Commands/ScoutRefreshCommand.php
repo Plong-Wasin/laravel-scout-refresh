@@ -9,17 +9,17 @@ class ScoutRefreshCommand extends Command
 {
     public $signature = 'scout:refresh';
 
-    public $description = 'Refreshes the search index by re-importing the searchable models in the application.';
+    public $description = 'Delete and re-import all search indexes for searchable models.';
 
     public function handle()
     {
-        $this->call('scout:delete-all-indexes');
         $modelsDirectory = app_path('Models');
         $files = File::files($modelsDirectory);
         foreach ($files as $file) {
-            $modelName = 'App\\Models\\'.$file->getBasename('.php');
+            $modelName = 'App\\Models\\' . $file->getBasename('.php');
             $model = new $modelName();
             if (method_exists($model, 'shouldBeSearchable')) {
+                $this->call('scout:flush', ['model' => $modelName]);
                 $this->call('scout:import', ['model' => $modelName]);
                 $this->newLine();
             }
