@@ -12,7 +12,7 @@ The `scout:refresh` and `scout:fresh` commands are part of the larave-scout-refr
 You can install the package via composer:
 
 ```bash
-composer require wasinpwg/laravel-scout-refresh --dev
+composer require wasinpwg/laravel-scout-refresh
 ```
 
 ## Usage
