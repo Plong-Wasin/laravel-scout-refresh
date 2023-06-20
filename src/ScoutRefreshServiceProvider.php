@@ -4,6 +4,7 @@ namespace Wasinpwg\ScoutRefresh;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Wasinpwg\ScoutRefresh\Commands\ScoutFreshCommand;
 use Wasinpwg\ScoutRefresh\Commands\ScoutRefreshCommand;
 
 class ScoutRefreshServiceProvider extends PackageServiceProvider
