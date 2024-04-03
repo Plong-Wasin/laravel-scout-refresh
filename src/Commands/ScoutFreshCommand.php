@@ -17,7 +17,7 @@ class ScoutFreshCommand extends Command
         $modelsDirectory = app_path('Models');
         $files = File::allFiles($modelsDirectory);
         foreach ($files as $file) {
-            $relativePath = $file->getRelativePath($modelsDirectory);
+            $relativePath = $file->getRelativePath();
             $namespaceDirectory = str_replace('/', '\\', $relativePath ? $relativePath . '\\' : '');
             $modelName = 'App\\Models\\' . $namespaceDirectory . class_basename($file->getBasename('.php'));
             if (class_exists($modelName) && method_exists($modelName, 'shouldBeSearchable') && !trait_exists($modelName)) {
