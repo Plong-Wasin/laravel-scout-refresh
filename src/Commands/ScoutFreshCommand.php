@@ -15,11 +15,12 @@ class ScoutFreshCommand extends Command
     {
         $this->call('scout:delete-all-indexes');
         $modelsDirectory = app_path('Models');
-        $files = File::files($modelsDirectory);
+        $files = File::allFiles($modelsDirectory);
         foreach ($files as $file) {
-            $modelName = 'App\\Models\\'.$file->getBasename('.php');
-            $model = new $modelName();
-            if (method_exists($model, 'shouldBeSearchable')) {
+            $relativePath = $file->getRelativePath($modelsDirectory);
+            $namespaceDirectory = str_replace('/', '\\', $relativePath ? $relativePath . '\\' : '');
+            $modelName = 'App\\Models\\' . $namespaceDirectory . class_basename($file->getBasename('.php'));
+            if (class_exists($modelName) && method_exists($modelName, 'shouldBeSearchable') && !trait_exists($modelName)) {
                 $this->call('scout:import', ['model' => $modelName]);
                 $this->newLine();
             }
