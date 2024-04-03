@@ -18,9 +18,9 @@ class ScoutFreshCommand extends Command
         $files = File::allFiles($modelsDirectory);
         foreach ($files as $file) {
             $relativePath = $file->getRelativePath($modelsDirectory);
-            $namespaceDirectory = str_replace('/', '\\', $relativePath ? $relativePath . '\\' : '');
-            $modelName = 'App\\Models\\' . $namespaceDirectory . class_basename($file->getBasename('.php'));
-            if (class_exists($modelName) && method_exists($modelName, 'shouldBeSearchable') && !trait_exists($modelName)) {
+            $namespaceDirectory = str_replace('/', '\\', $relativePath ? $relativePath.'\\' : '');
+            $modelName = 'App\\Models\\'.$namespaceDirectory.class_basename($file->getBasename('.php'));
+            if (class_exists($modelName) && method_exists($modelName, 'shouldBeSearchable') && ! trait_exists($modelName)) {
                 $this->call('scout:import', ['model' => $modelName]);
                 $this->newLine();
             }
